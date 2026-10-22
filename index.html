@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stratégie RSO — Wallah We Can</title>
-  <meta name="description" content="Diagnostic RSO et stratégie fondée sur l'ISO 26000 pour l'association Wallah We Can : maturité, enjeux prioritaires, axes stratégiques, feuille de route et tableau de bord.">
+  <meta name="description" content="Diagnostic RSO, stratégie fondée sur l'ISO 26000 et suivi de la mise en œuvre pour l'association Wallah We Can : tableau de bord, feuille de route, 23 indicateurs et rapport RSO.">
   <meta property="og:title" content="Stratégie RSO — Wallah We Can">
   <meta property="og:description" content="Une stratégie de responsabilité sociétale fondée sur l'ISO 26000 pour une association tunisienne qui transforme les écoles publiques en entreprises sociales.">
   <meta property="og:image" content="assets/greenschool.jpg">
@@ -23,13 +23,15 @@
         <img src="assets/logo-wwc.png" alt="Wallah We Can" width="150" height="18">
         <span>Stratégie RSO</span>
       </a>
-      <nav aria-label="Sections">
-        <a href="#projets">Projets</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Sections">
+        <a href="#tableau">Tableau de bord</a>
+        <a href="#projets">Association</a>
         <a href="#diagnostic">Diagnostic</a>
-        <a href="#enjeux">Enjeux</a>
         <a href="#strategie">Stratégie</a>
         <a href="#feuille">Feuille de route</a>
         <a href="#indicateurs">Indicateurs</a>
+        <a href="#rapport">Rapport</a>
       </nav>
     </div>
   </header>
@@ -41,9 +43,9 @@
         <div class="hero-text">
           <p class="context">Mémoire de Master en Management de la Performance et RSO, ISCAE, Université de la Manouba</p>
           <h1>Chez Wallah We Can, la responsabilité sociétale est présente partout, mais nulle part comme système.</h1>
-          <p class="lead">Ce site présente le diagnostic RSO de l'association, mené avec la norme ISO 26000, et la stratégie proposée pour piloter, mesurer et prouver ce qu'elle accomplit déjà.</p>
+          <p class="lead">Ce site présente le diagnostic RSO de l'association, mené avec la norme ISO 26000, la stratégie proposée pour piloter, mesurer et prouver ce qu'elle accomplit déjà, et les outils pour suivre sa mise en œuvre.</p>
           <div class="cta">
-            <a class="btn btn-primary" href="#diagnostic">Voir le diagnostic</a>
+            <a class="btn btn-primary" href="#tableau">Voir le tableau de bord</a>
             <a class="btn btn-ghost" href="#strategie">Découvrir la stratégie</a>
           </div>
         </div>
@@ -58,8 +60,41 @@
       </div>
     </section>
 
+    <!-- ============ Tableau de bord ============ -->
+    <section class="block" id="tableau">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Tableau de bord de la démarche RSO</h2>
+          <p>Une vue d'ensemble de l'état de la démarche. Elle se met à jour à partir des données saisies par le référent RSO après chaque revue du comité de pilotage.</p>
+        </div>
+        <div class="stats" id="stats"></div>
+        <p class="updated" id="updated"></p>
+
+        <div class="dash-grid">
+          <figure class="panel">
+            <figcaption><h3>Avancement des actions par axe</h3><p>Répartition des 14 actions de la feuille de route selon leur statut.</p></figcaption>
+            <div id="chart-actions" class="hbar"></div>
+            <div class="status-legend" id="status-legend"></div>
+          </figure>
+          <figure class="panel">
+            <figcaption><h3>Données disponibles par axe</h3><p>Pour chaque indicateur : une valeur de référence existe-t-elle déjà, ou reste-t-elle à mesurer ?</p></figcaption>
+            <div id="chart-data" class="hbar"></div>
+            <div class="status-legend" id="data-legend"></div>
+          </figure>
+        </div>
+
+        <figure class="panel evolution">
+          <figcaption><h3>Évolution des indicateurs</h3><p>Comparaison entre la valeur de départ et les mesures suivantes, indicateur par indicateur.</p></figcaption>
+          <div id="evolution"></div>
+        </figure>
+
+        <h3 class="sub">Ce que suit chaque axe</h3>
+        <div class="axis-track" id="axis-track"></div>
+      </div>
+    </section>
+
     <!-- ============ L'association ============ -->
-    <section class="block" id="projets">
+    <section class="block alt" id="projets">
       <div class="wrap">
         <div class="section-head">
           <h2>Une association qui transforme l'école en entreprise sociale</h2>
@@ -71,7 +106,7 @@
           <div><dt>150</dt><dd>emplois directs et indirects créés</dd></div>
           <div><dt>6 pays</dt><dd>Tunisie, France, États-Unis, Belgique, Palestine, Liban</dd></div>
         </dl>
-        <p class="fine">Données déclarées par l'association, non vérifiées par un tiers.</p>
+        <p class="fine"><span class="tag declare">Déclaré</span> Chiffres déclarés par l'association, non vérifiés par un tiers.</p>
 
         <div class="projects">
           <figure class="project">
@@ -95,7 +130,7 @@
     </section>
 
     <!-- ============ Diagnostic ============ -->
-    <section class="block alt" id="diagnostic">
+    <section class="block" id="diagnostic">
       <div class="wrap">
         <div class="section-head">
           <h2>Le diagnostic : une maturité réelle mais inégale</h2>
@@ -124,16 +159,9 @@
             <li>Évolution possible du cadre des financements étrangers</li>
             <li>Instabilité des contextes en Palestine et au Liban</li></ul></div>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ Enjeux ============ -->
-    <section class="block" id="enjeux">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Neuf enjeux prioritaires sur douze</h2>
-          <p>Chaque enjeu est placé selon son importance pour les parties prenantes et pour la mission de l'association. Ceux qui dépassent 3,5 sur les deux axes fondent la stratégie.</p>
-        </div>
+        <h3 class="sub" id="enjeux">Neuf enjeux prioritaires sur douze</h3>
+        <p class="sub-lead">Chaque enjeu est placé selon son importance pour les parties prenantes et pour la mission de l'association. Ceux qui dépassent 3,5 sur les deux axes fondent la stratégie.</p>
         <div class="matrix-layout">
           <figure class="matrix-fig">
             <svg id="matrix" viewBox="0 0 520 460" role="img" aria-label="Matrice de matérialité des douze enjeux"></svg>
@@ -155,7 +183,7 @@
         <div class="gov">
           <div>
             <h3 class="sub">Qui pilote ?</h3>
-            <p>Un <strong>comité de pilotage RSO</strong> de cinq membres se réunit chaque trimestre : le président, le référent RSO, un chef de projet, un représentant des bénévoles et une partie prenante externe. Le <strong>référent RSO</strong> consolide les indicateurs et prépare le rapport annuel.</p>
+            <p>Un <strong>comité de pilotage RSO</strong> de cinq membres se réunit chaque trimestre : le président, le référent RSO, un chef de projet, un représentant des bénévoles et une partie prenante externe. Le <strong>référent RSO</strong> met à jour les indicateurs et les actions sur ce site, puis prépare le rapport.</p>
           </div>
           <div>
             <h3 class="sub">Comment ?</h3>
@@ -174,11 +202,17 @@
     <section class="block" id="feuille">
       <div class="wrap">
         <div class="section-head">
-          <h2>Dix-huit mois pour installer la démarche</h2>
-          <p>La protection de l'enfance et le pilotage démarrent en premier : la première conditionne le déploiement de l'Ambassade de l'Enfance, le second conditionne tout le reste.</p>
+          <h2>Feuille de route sur dix-huit mois</h2>
+          <p>Chaque action a un responsable, une échéance et un statut. Sélectionnez une action pour voir son détail. La protection de l'enfance et le pilotage démarrent en premier.</p>
         </div>
-        <div class="legend" id="legend"></div>
-        <div class="gantt" id="gantt" role="table" aria-label="Calendrier de la feuille de route RSO, en mois"></div>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filtrer par axe" id="road-axes"></div>
+          <div class="filters" role="group" aria-label="Filtrer par statut" id="road-status"></div>
+        </div>
+        <div class="road-layout">
+          <div class="gantt" id="gantt" role="list" aria-label="Actions de la feuille de route"></div>
+          <aside class="detail" id="road-detail" aria-live="polite"></aside>
+        </div>
       </div>
     </section>
 
@@ -186,41 +220,105 @@
     <section class="block alt" id="indicateurs">
       <div class="wrap">
         <div class="section-head">
-          <h2>Vingt-trois indicateurs pour suivre les progrès</h2>
-          <p>Pour les indicateurs nouveaux (CO₂, SROI, égalité), la cible de la première année est d'établir une valeur de référence fiable.</p>
+          <h2>Les 23 indicateurs de suivi</h2>
+          <p>Pour chaque indicateur : sa valeur de référence, sa cible pour la première année, sa dernière valeur mesurée, sa fréquence de suivi, sa source et son responsable. Aucune valeur n'est inventée : une donnée non encore disponible est signalée « À mesurer ».</p>
         </div>
-        <div class="filters" role="group" aria-label="Filtrer les indicateurs par axe" id="filters"></div>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filtrer les indicateurs par axe" id="kpi-filters"></div>
+          <div class="tools">
+            <label class="search"><span class="visually-hidden">Rechercher un indicateur</span><input type="search" id="kpi-search" placeholder="Rechercher un indicateur"></label>
+            <button class="btn-small" type="button" id="export-csv">Exporter (Excel)</button>
+            <button class="btn-small" type="button" id="export-pdf">Exporter (PDF)</button>
+          </div>
+        </div>
+        <div class="data-legend">
+          <span class="tag constate">Constaté</span> lors du diagnostic
+          <span class="tag declare">Déclaré</span> par l'association
+          <span class="tag mesure">Mesuré</span> selon la méthode de l'indicateur
+          <span class="tag todo">À mesurer</span> valeur à établir
+        </div>
         <div class="table-wrap">
-          <table class="kpi">
-            <thead><tr><th scope="col">Indicateur</th><th scope="col">Unité</th><th scope="col">Fréquence</th><th scope="col">Cible année 1</th></tr></thead>
+          <table class="kpi" id="kpi-table">
+            <thead><tr>
+              <th scope="col">Indicateur</th><th scope="col">Référence</th><th scope="col">Cible année 1</th><th scope="col">Dernière valeur</th>
+              <th scope="col">Fréquence</th><th scope="col">Source</th><th scope="col">Responsable</th>
+            </tr></thead>
             <tbody id="kpi-body"></tbody>
           </table>
         </div>
+        <p class="kpi-count" id="kpi-count"></p>
+      </div>
+    </section>
+
+    <!-- ============ Rapport ============ -->
+    <section class="block" id="rapport">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Générer un rapport RSO</h2>
+          <p>Le rapport reprend automatiquement les indicateurs et les actions du site : résultats, écarts par rapport aux objectifs, actions à corriger. Ajoutez vos recommandations, puis enregistrez-le en PDF pour le comité de pilotage, les partenaires ou les bailleurs.</p>
+        </div>
+        <form class="report-form" id="report-form">
+          <label>Période couverte
+            <input type="text" id="r-periode" value="" required>
+          </label>
+          <label>Destinataires
+            <select id="r-dest">
+              <option>Comité de pilotage RSO</option>
+              <option>Bureau exécutif et assemblée générale</option>
+              <option>Partenaires et bailleurs</option>
+            </select>
+          </label>
+          <fieldset>
+            <legend>Axes à inclure</legend>
+            <div id="r-axes" class="checks"></div>
+          </fieldset>
+          <label class="wide">Recommandations et décisions du comité
+            <textarea id="r-reco" rows="4" placeholder="Exemple : valider la fiche de suivi des partenaires ; programmer le bilan carbone au prochain trimestre."></textarea>
+          </label>
+          <div class="wide form-actions">
+            <button class="btn btn-primary" type="submit">Générer le rapport</button>
+          </div>
+        </form>
+        <article class="report" id="report" hidden></article>
       </div>
     </section>
 
     <!-- ============ Méthode et crédits ============ -->
-    <section class="block" id="apropos">
+    <section class="block alt" id="apropos">
       <div class="wrap about">
         <div>
           <h2>Méthode</h2>
           <p>Étude de cas qualitative menée pendant un stage d'immersion au sein de Wallah We Can : entretiens semi-directifs, analyse documentaire et observation participante. Les constats ont été évalués avec une grille fondée sur l'ISO 26000, une échelle de maturité à cinq niveaux et une analyse de matérialité.</p>
+          <p><strong>Mettre à jour les données.</strong> Toutes les valeurs du site se trouvent dans le fichier <code>data.js</code> du dépôt GitHub. Le référent RSO y modifie les statuts des actions et les valeurs des indicateurs ; le site se met à jour automatiquement après l'enregistrement.</p>
         </div>
         <div>
           <h2>Crédits</h2>
-          <p>Mémoire réalisé par <strong>[Prénom NOM]</strong>, Master Professionnel en Management de la Performance et Responsabilité Sociétale des Organisations, ISCAE, année universitaire 2025-2026.</p>
-          <p>Encadrement académique : [Mme / M. Prénom NOM]. Maître de stage : [Mme / M. Prénom NOM].</p>
-          <p>Cette plateforme a été conçue en collaboration avec une équipe de développeurs afin de digitaliser les résultats du mémoire et d'en faciliter le suivi par l'association et ses partenaires.</p>
+          <p id="credits"></p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <p>Données issues du mémoire et des documents publics de Wallah We Can. Les chiffres d'impact sont déclarés par l'association.</p>
+    <div class="wrap footer-grid">
+      <div>
+        <img src="assets/logo-wwc.png" alt="Wallah We Can" width="150" height="18" class="footer-logo">
+        <p>Association Wallah We Can<br>16, rue de Palestine, Lafayette, Tunis</p>
+        <p><a href="https://wallahwecan.org" rel="noopener">wallahwecan.org</a></p>
+      </div>
+      <div>
+        <h2>Ce site</h2>
+        <p>Plateforme de valorisation du mémoire « Stratégie RSO fondée sur l'ISO 26000 — cas de Wallah We Can », ISCAE, Université de la Manouba.</p>
+        <p id="footer-update"></p>
+      </div>
+      <div>
+        <h2>Sources des données</h2>
+        <p>Mémoire de master, documents publics de l'association et dossier de partenariat 2025-2026. Les chiffres d'impact sont déclarés par l'association.</p>
+      </div>
     </div>
   </footer>
+
+  <a href="#haut" class="to-top" id="to-top" aria-label="Retour en haut de la page" hidden>↑</a>
 
   <script src="data.js"></script>
   <script src="app.js"></script>

@@ -1,33 +1,42 @@
 # Stratégie RSO — Wallah We Can
 
-Site statique (HTML, CSS, JavaScript) qui présente les résultats du mémoire :
-diagnostic de maturité RSO, matrice de matérialité, axes stratégiques,
-feuille de route et tableau de bord de 23 indicateurs.
+Site statique (HTML, CSS, JavaScript) qui présente les résultats du mémoire et permet
+de suivre la mise en œuvre de la stratégie RSO :
+
+- tableau de bord (maturité, indicateurs, avancement des actions par axe) ;
+- feuille de route interactive (responsable, échéance, budget, statut) ;
+- 23 indicateurs avec référence, cible, dernière valeur, source et responsable,
+  filtre par axe, export Excel (CSV) et PDF ;
+- générateur de rapport RSO périodique, à enregistrer en PDF.
 
 Aucune installation ni compilation n'est nécessaire.
 
-## Déployer gratuitement sur Vercel
+## Mettre à jour les données (référent RSO)
 
-**Option 1 — sans ligne de commande**
-1. Créer un compte gratuit sur https://vercel.com (connexion avec GitHub possible).
-2. Mettre ce dossier dans un dépôt GitHub (bouton « Add file > Upload files »).
-3. Sur Vercel : « Add New… > Project », choisir le dépôt, laisser « Framework Preset : Other », cliquer « Deploy ».
-4. Le site est en ligne en moins d'une minute à une adresse du type `https://nom-du-projet.vercel.app`.
+Tout se trouve dans **`data.js`**. Sur GitHub : ouvrir le fichier, cliquer sur le crayon
+(« Edit »), modifier, puis « Commit changes ». Vercel republie le site en une minute.
 
-**Option 2 — en ligne de commande**
-```bash
-npm i -g vercel
-cd site-rso-wallah-we-can
-vercel --prod
-```
+| Ce que vous voulez faire | Où, dans `data.js` |
+| --- | --- |
+| Changer la date de mise à jour | `meta.miseAJour: "2026-10-22"` |
+| Fixer la date de lancement | `meta.lancement: "2027-01-01"` (les échéances deviennent des dates ; une action non réalisée dont l'échéance est dépassée passe automatiquement « En retard ») |
+| Changer le statut d'une action | dans `feuille`, `statut: "À lancer"`, `"En cours"` ou `"Réalisée"` |
+| Indiquer un budget | dans `feuille`, `budget: 5000` (en TND) |
+| Saisir la dernière valeur d'un indicateur | dans `kpi`, `actuel: "3,8 / 5"` |
+| Afficher l'évolution d'un indicateur | dans `kpi`, `historique: [{ date: "2027-03", valeur: 12 }, { date: "2027-06", valeur: 18 }]` |
+| Renseigner les crédits | `meta.credits` |
 
-## Tester en local
-Ouvrir `index.html` dans un navigateur, ou lancer `npx serve .` dans le dossier.
+Une valeur non disponible reste `null` : le site affiche alors « À mesurer ».
+N'inscrivez jamais une valeur estimée comme si elle était mesurée.
 
-## Modifier le contenu
-- Textes : `index.html`
-- Données (scores, enjeux, axes, feuille de route, indicateurs) : `data.js`
-- Couleurs et mise en page : `styles.css`
-- Images : dossier `assets/`
+## Limite volontaire
 
-Pensez à remplacer les champs `[Prénom NOM]` dans la section « Crédits ».
+Le site est public : il ne contient aucune donnée interne ni personnelle.
+Un espace privé avec connexion (rôles administrateur, référent RSO, chef de projet,
+direction) nécessiterait une base de données et un service d'authentification
+(par exemple Supabase), à ajouter dans une version ultérieure.
+
+## Déployer sur Vercel
+
+1. Mettre ces fichiers dans un dépôt GitHub (`index.html` à la racine).
+2. Sur vercel.com : « Add New… > Project », choisir le dépôt, « Deploy ».
